@@ -1,5 +1,6 @@
 #include "MovingAverageStrategy.h"
 #include <iostream>
+#include <fstream>
 #include <numeric>
 
 MovingAverageStrategy::MovingAverageStrategy(int shortW, int longW)
@@ -25,14 +26,27 @@ void MovingAverageStrategy::execute(const std::vector<double>& prices) {
 
     bool position = false;
 
+    std::ofstream outFile("strategy_output.csv");
+    if (!outFile.is_open()) {
+        std::cerr << "Error: Unable to open output file\n";
+        return;
+    }
+
+    outFile << "Index,Price,Action\n";
+
     for (size_t i = 0; i < longMA.size(); ++i) {
         size_t priceIndex = i + longWindow - 1;
+
         if (shortMA[i] > longMA[i] && !position) {
             std::cout << "Buy at price: " << prices[priceIndex] << "\n";
+            outFile << priceIndex << "," << prices[priceIndex] << ",Buy\n";
             position = true;
         } else if (shortMA[i] < longMA[i] && position) {
             std::cout << "Sell at price: " << prices[priceIndex] << "\n";
+            outFile << priceIndex << "," << prices[priceIndex] << ",Sell\n";
             position = false;
         }
     }
+
+    outFile.close();
 }

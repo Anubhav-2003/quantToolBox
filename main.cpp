@@ -20,5 +20,7 @@ int main() {
 
     strategy.execute(prices);
 
+    std::cout << "Strategy output exported to 'strategy_output.csv'\n";
+
     return 0;
 }
