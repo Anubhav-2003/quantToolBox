@@ -4,16 +4,18 @@
 
 int main() {
     DataHandler dataHandler;
-    dataHandler.loadData("historical_prices.csv");
 
-    const auto& prices = dataHandler.getPrices();
+    dataHandler.loadData("./Data/GS_stock_data.csv");
+
+    const std::vector<double>& prices = dataHandler.getPrices();
     if (prices.empty()) {
-        std::cerr << "No data loaded. Exiting...\n";
+        std::cerr << "No data loaded from the file. Exiting...\n";
         return 1;
     }
 
     int shortWindow = 5;
-    int longWindow = 20;
+    int longWindow = 10;
+
     MovingAverageStrategy strategy(shortWindow, longWindow);
 
     strategy.execute(prices);
