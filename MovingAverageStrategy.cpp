@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <numeric>
+#include <algorithm>
 
 MovingAverageStrategy::MovingAverageStrategy(int shortW, int longW)
     : shortWindow(shortW), longWindow(longW) {}
@@ -16,13 +17,17 @@ std::vector<double> MovingAverageStrategy::calculateMovingAverage(const std::vec
 }
 
 void MovingAverageStrategy::execute(const std::vector<double>& prices) {
-    if (prices.size() < longWindow) {
+    std::vector<double> mutablePrices = prices;
+
+    std::reverse(mutablePrices.begin(), mutablePrices.end());
+
+    if (mutablePrices.size() < longWindow) {
         std::cerr << "Error: Not enough data for the strategy\n";
         return;
     }
 
-    auto shortMA = calculateMovingAverage(prices, shortWindow);
-    auto longMA = calculateMovingAverage(prices, longWindow);
+    auto shortMA = calculateMovingAverage(mutablePrices, shortWindow);
+    auto longMA = calculateMovingAverage(mutablePrices, longWindow);
 
     bool position = false;
 
@@ -38,12 +43,12 @@ void MovingAverageStrategy::execute(const std::vector<double>& prices) {
         size_t priceIndex = i + longWindow - 1;
 
         if (shortMA[i] > longMA[i] && !position) {
-            std::cout << "Buy at price: " << prices[priceIndex] << "\n";
-            outFile << priceIndex << "," << prices[priceIndex] << ",Buy\n";
+            std::cout << "Buy at price: " << mutablePrices[priceIndex] << "\n";
+            outFile << priceIndex << "," << mutablePrices[priceIndex] << ",Buy\n";
             position = true;
         } else if (shortMA[i] < longMA[i] && position) {
-            std::cout << "Sell at price: " << prices[priceIndex] << "\n";
-            outFile << priceIndex << "," << prices[priceIndex] << ",Sell\n";
+            std::cout << "Sell at price: " << mutablePrices[priceIndex] << "\n";
+            outFile << priceIndex << "," << mutablePrices[priceIndex] << ",Sell\n";
             position = false;
         }
     }

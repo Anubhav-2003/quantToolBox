@@ -13,8 +13,8 @@ int main() {
         return 1;
     }
 
-    int shortWindow = 5;
-    int longWindow = 10;
+    int shortWindow = 50;
+    int longWindow = 200;
 
     MovingAverageStrategy strategy(shortWindow, longWindow);
 
