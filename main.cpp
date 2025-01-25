@@ -5,7 +5,7 @@
 int main() {
     DataHandler dataHandler;
 
-    dataHandler.loadData("./Data/GS_stock_data.csv");
+    dataHandler.loadData("./Data/ZOMATO.BSE_stock_data.csv");
 
     const std::vector<double>& prices = dataHandler.getPrices();
     if (prices.empty()) {

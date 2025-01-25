@@ -38,11 +38,10 @@ void MovingAverageStrategy::execute(const std::vector<double>& prices) {
     }
 
     outFile << "Index,Price,Action\n";
-
     for (size_t i = 0; i < longMA.size(); ++i) {
         size_t priceIndex = i + longWindow - 1;
 
-        if (shortMA[i] > longMA[i] && !position) {
+        if (shortMA[i + longWindow - shortWindow] > longMA[i] && !position) {
             std::cout << "Buy at price: " << mutablePrices[priceIndex] << "\n";
             outFile << priceIndex << "," << mutablePrices[priceIndex] << ",Buy\n";
             position = true;

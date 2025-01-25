@@ -21,5 +21,5 @@ def fetch_and_save_stock_data(symbol, output_size='full', datatype='csv'):
     else:
         print("Error: Unable to fetch data from Alpha Vantage")
 
-symbol = 'GS'
+symbol = 'ZOMATO.BSE'
 fetch_and_save_stock_data(symbol, output_size='full', datatype='csv')
