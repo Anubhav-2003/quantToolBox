@@ -10,7 +10,8 @@
           "main.cpp",
           "./utility/DataHandler.cpp",
           "./crossOverStrategies/MovingAverageStrategy.cpp",
-          "./crossOverStrategies/ExponentialMovingAverageStrategy.cpp"
+          "./crossOverStrategies/ExponentialMovingAverageStrategy.cpp",
+          "./crossOverStrategies/RelativeStrengthIndexStrategy.cpp"
         ],
         "group": {
           "kind": "build",
