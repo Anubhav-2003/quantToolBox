@@ -1,5 +1,4 @@
 imp.txt
 ./Data/GS_stock_data.csv
 backtesting_engine
-
-strategy_output.csv
+csv

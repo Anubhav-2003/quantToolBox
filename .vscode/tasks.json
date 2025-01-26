@@ -9,7 +9,8 @@
           "-o", "backtesting_engine",
           "main.cpp",
           "./utility/DataHandler.cpp",
-          "./strategies/MovingAverageStrategy.cpp"
+          "./crossOverStrategies/MovingAverageStrategy.cpp",
+          "./crossOverStrategies/ExponentialMovingAverageStrategy.cpp"
         ],
         "group": {
           "kind": "build",

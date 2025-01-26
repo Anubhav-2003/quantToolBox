@@ -1,5 +1,6 @@
 #include "./utility/DataHandler.h"
-#include "./strategies/MovingAverageStrategy.h"
+#include "./crossOverStrategies/MovingAverageStrategy.h"
+#include "./crossOverStrategies/ExponentialMovingAverageStrategy.h"
 #include <iostream>
 
 int main() {
@@ -13,10 +14,10 @@ int main() {
         return 1;
     }
 
-    int shortWindow = 50;
+    int shortWindow = 9;
     int longWindow = 200;
 
-    MovingAverageStrategy strategy(shortWindow, longWindow);
+    ExponentialMovingAverageStrategy strategy(shortWindow, longWindow);
 
     strategy.execute(prices);
 

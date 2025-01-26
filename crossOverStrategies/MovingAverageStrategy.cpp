@@ -31,7 +31,7 @@ void MovingAverageStrategy::execute(const std::vector<double>& prices) {
 
     bool position = false;
 
-    std::ofstream outFile("strategy_output.csv");
+    std::ofstream outFile("./csv/strategy_output.csv");
     if (!outFile.is_open()) {
         std::cerr << "Error: Unable to open output file\n";
         return;
