@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build Backtesting Engine",
+        "type": "shell",
+        "command": "g++",
+        "args": [
+          "-o", "backtesting_engine",
+          "main.cpp",
+          "./utility/DataHandler.cpp",
+          "./strategies/MovingAverageStrategy.cpp"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": [],
+        "detail": "Compiles the backtesting engine project."
+      }
+    ]
+  }
+  

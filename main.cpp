@@ -1,5 +1,5 @@
-#include "DataHandler.h"
-#include "MovingAverageStrategy.h"
+#include "./utility/DataHandler.h"
+#include "./strategies/MovingAverageStrategy.h"
 #include <iostream>
 
 int main() {
