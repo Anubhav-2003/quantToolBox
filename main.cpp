@@ -2,6 +2,7 @@
 #include "./crossOverStrategies/MovingAverageStrategy.h"
 #include "./crossOverStrategies/ExponentialMovingAverageStrategy.h"
 #include "./crossOverStrategies/RelativeStrengthIndexStrategy.h"
+#include "./crossOverStrategies/BollingerBandStrategy.h"
 #include <iostream>
 
 int main() {
@@ -20,7 +21,8 @@ int main() {
     int period = 13;
     int overbought = 60;
     int oversold = 40;
-    RelativeStrengthIndexStrategy strategy(period, overbought, oversold);
+    int stdDevFactor = 2;
+    BollingerBandStrategy strategy(period, stdDevFactor);
 
     strategy.execute(prices);
 

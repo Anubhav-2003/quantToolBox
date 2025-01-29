@@ -11,7 +11,8 @@
           "./utility/DataHandler.cpp",
           "./crossOverStrategies/MovingAverageStrategy.cpp",
           "./crossOverStrategies/ExponentialMovingAverageStrategy.cpp",
-          "./crossOverStrategies/RelativeStrengthIndexStrategy.cpp"
+          "./crossOverStrategies/RelativeStrengthIndexStrategy.cpp",
+          "./crossOverStrategies/BollingerBandsStrategy.cpp"
         ],
         "group": {
           "kind": "build",
