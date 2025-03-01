@@ -1,26 +1,26 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-      {
-        "label": "Build Backtesting Engine",
-        "type": "shell",
-        "command": "g++",
-        "args": [
-          "-o", "backtesting_engine",
-          "main.cpp",
-          "./utility/DataHandler.cpp",
-          "./crossOverStrategies/MovingAverageStrategy.cpp",
-          "./crossOverStrategies/ExponentialMovingAverageStrategy.cpp",
-          "./crossOverStrategies/RelativeStrengthIndexStrategy.cpp",
-          "./crossOverStrategies/BollingerBandsStrategy.cpp"
-        ],
-        "group": {
-          "kind": "build",
-          "isDefault": true
-        },
-        "problemMatcher": [],
-        "detail": "Compiles the backtesting engine project."
-      }
-    ]
-  }
-  
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Backtesting Engine",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-o", "backtesting_engine",
+        "main.cpp",
+        "./utility/DataHandler.cpp",
+        "./crossOverStrategies/MovingAverageStrategy.cpp",
+        "./crossOverStrategies/ExponentialMovingAverageStrategy.cpp",
+        "./crossOverStrategies/RelativeStrengthIndexStrategy.cpp",
+        "./crossOverStrategies/BollingerBandsStrategy.cpp",
+        "./derivatives/options/ImpliedVolatility.cpp"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "detail": "Compiles the backtesting engine project with implied volatility module."
+    }
+  ]
+}

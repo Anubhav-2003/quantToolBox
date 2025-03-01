@@ -3,6 +3,7 @@
 #include "./crossOverStrategies/ExponentialMovingAverageStrategy.h"
 #include "./crossOverStrategies/RelativeStrengthIndexStrategy.h"
 #include "./crossOverStrategies/BollingerBandStrategy.h"
+#include "./derivatives/options/ImpliedVolatility.h"
 #include <iostream>
 
 int main() {
@@ -16,17 +17,16 @@ int main() {
         return 1;
     }
 
-    int shortWindow = 9;
-    int longWindow = 200;
-    int period = 13;
-    int overbought = 60;
-    int oversold = 40;
-    int stdDevFactor = 2;
-    BollingerBandStrategy strategy(period, stdDevFactor);
+    double V_market = 2;
+    double K = 120;
+    double tau = 1;
+    double r = 0.05;
+    double S_0 = 100;
+    double sigma = 0.25;
 
-    strategy.execute(prices);
-
-    std::cout << "Strategy output exported to 'strategy_output.csv'\n";
+    ImpliedVolatility sigmaObj(V_market, K, tau, r, S_0, sigma);
+    sigmaObj.calculate();
+    std::cout << "Strategy output exported to 'implied_volatility_output.csv'\n";
 
     return 0;
 }
